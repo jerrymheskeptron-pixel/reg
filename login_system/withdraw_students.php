@@ -66,13 +66,13 @@ $total = is_object($result) ? mysqli_num_rows($result) : 0;
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-light">
+<body class="bg-light m-0 p-0">
 
-<div class="container-fluid p-4">
+<div class="container-fluid p-0">
 
     <!-- Header Card -->
-    <div class="card shadow-sm border-0 mb-4">
-        <div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div class="card shadow-sm border-0 rounded-0 mb-3">
+        <div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3 px-4 py-3">
             <div class="d-flex align-items-center gap-3">
                 <a href="dashboard.php" class="btn btn-outline-secondary btn-sm rounded-circle d-inline-flex align-items-center justify-content-center" style="width:40px; height:40px;">
                     <i class="fas fa-arrow-left"></i>
@@ -93,63 +93,65 @@ $total = is_object($result) ? mysqli_num_rows($result) : 0;
     </div>
 
     <!-- Table Card -->
-    <div class="card shadow-sm border-0 w-100">
-        <div class="card-body p-0 w-100">
-            <div class="table-responsive w-100">
-                <table class="table table-hover table-striped align-middle mb-0 w-100">
-                    <thead class="table-dark">
-                        <tr>
-                            <th class="ps-3">Student No.</th>
-                            <th>Full Name</th>
-                            <th>Course</th>
-                            <th>Year</th>
-                            <th>Section</th>
-                            <th>Status</th>
-                            <th class="text-end pe-3 no-print">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php if ($total > 0) { ?>
-                        <?php while($row = mysqli_fetch_assoc($result)){ ?>
-                        <tr>
-                            <td class="ps-3 fw-bold text-secondary">
-                                <?php echo htmlspecialchars($row['student_no']); ?>
-                            </td>
-                            <td class="fw-semibold">
-                                <?php echo htmlspecialchars($row['full_name']); ?>
-                            </td>
-                            <td>
-                                <span class="badge bg-info text-dark">
-                                    <?php echo htmlspecialchars($row['course']); ?>
-                                </span>
-                            </td>
-                            <td><?php echo htmlspecialchars($row['year_level']); ?></td>
-                            <td><?php echo htmlspecialchars($row['section']); ?></td>
-                            <td>
-                                <span class="badge bg-danger">
-                                    <?php echo htmlspecialchars($row['status']); ?>
-                                </span>
-                            </td>
-                            <td class="text-end pe-3 no-print">
-                                <a href="edit_student.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary me-1">
-                                    <i class="fas fa-pen me-1"></i>Edit
-                                </a>
-                                <a href="delete_student.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this student?')">
-                                    <i class="fas fa-trash me-1"></i>Delete
-                                </a>
-                            </td>
-                        </tr>
+    <div class="px-3 pb-3">
+        <div class="card shadow-sm border-0 w-100">
+            <div class="card-body p-0 w-100">
+                <div class="table-responsive w-100">
+                    <table class="table table-hover table-striped align-middle mb-0 w-100">
+                        <thead class="table-dark">
+                            <tr>
+                                <th class="ps-3">Student No.</th>
+                                <th>Full Name</th>
+                                <th>Course</th>
+                                <th>Year</th>
+                                <th>Section</th>
+                                <th>Status</th>
+                                <th class="text-end pe-3 no-print">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php if ($total > 0) { ?>
+                            <?php while($row = mysqli_fetch_assoc($result)){ ?>
+                            <tr>
+                                <td class="ps-3 fw-bold text-secondary">
+                                    <?php echo htmlspecialchars($row['student_no']); ?>
+                                </td>
+                                <td class="fw-semibold">
+                                    <?php echo htmlspecialchars($row['full_name']); ?>
+                                </td>
+                                <td>
+                                    <span class="badge bg-info text-dark">
+                                        <?php echo htmlspecialchars($row['course']); ?>
+                                    </span>
+                                </td>
+                                <td><?php echo htmlspecialchars($row['year_level']); ?></td>
+                                <td><?php echo htmlspecialchars($row['section']); ?></td>
+                                <td>
+                                    <span class="badge bg-danger">
+                                        <?php echo htmlspecialchars($row['status']); ?>
+                                    </span>
+                                </td>
+                                <td class="text-end pe-3 no-print">
+                                    <a href="edit_student.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary me-1">
+                                        <i class="fas fa-pen me-1"></i>Edit
+                                    </a>
+                                    <a href="delete_student.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this student?')">
+                                        <i class="fas fa-trash me-1"></i>Delete
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        <?php } else { ?>
+                            <tr>
+                                <td colspan="7" class="text-center py-5 text-muted">
+                                    <i class="fas fa-folder-open fa-3x mb-3 d-block text-secondary"></i>
+                                    No withdrawn students found.
+                                </td>
+                            </tr>
                         <?php } ?>
-                    <?php } else { ?>
-                        <tr>
-                            <td colspan="7" class="text-center py-5 text-muted">
-                                <i class="fas fa-folder-open fa-3x mb-3 d-block text-secondary"></i>
-                                No withdrawn students found.
-                            </td>
-                        </tr>
-                    <?php } ?>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
