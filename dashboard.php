@@ -10,142 +10,133 @@ if(!isset($_SESSION['username'])){
    DASHBOARD STATISTICS
 ========================= */
 
-/* TOTAL ACTIVE STUDENTS */
-$totalStudents = mysqli_fetch_assoc(
-    mysqli_query($conn, "
-        SELECT COUNT(*) AS total
-        FROM students
-        WHERE status IN ('Regular', 'Irregular')
-        AND deleted = 0
-        AND student_list_deleted = 0
-    ")
-)['total'];
+function fetchTotal($conn, $query) {
+    if (!$conn) return 0;
+    $res = @mysqli_query($conn, $query);
+    if ($res && $row = @mysqli_fetch_assoc($res)) {
+        return $row['total'];
+    }
+    return 0;
+}
 
+/* TOTAL ACTIVE STUDENTS */
+$totalStudents = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE status IN ('Regular', 'Irregular')
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 /* REGULAR STUDENTS */
-$regularStudents = mysqli_fetch_assoc(
-    mysqli_query($conn, "
-        SELECT COUNT(*) AS total
-        FROM students
-        WHERE status = 'Regular'
-        AND deleted = 0
-        AND student_list_deleted = 0
-    ")
-)['total'];
-
+$regularStudents = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE status = 'Regular'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 /* IRREGULAR STUDENTS */
-$irregularStudents = mysqli_fetch_assoc(
-    mysqli_query($conn, "
-        SELECT COUNT(*) AS total
-        FROM students
-        WHERE status = 'Irregular'
-        AND deleted = 0
-        AND student_list_deleted = 0
-    ")
-)['total'];
-
+$irregularStudents = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE status = 'Irregular'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 $totalCourses = 9;
 
-
 // BSCA
-$bsca = mysqli_fetch_assoc(mysqli_query($conn,
-    "SELECT COUNT(*) AS total
-     FROM students
-     WHERE course = 'BSCA'
-     AND status != 'Withdraw'
-     AND deleted = 0
-     AND student_list_deleted = 0"
-))['total'];
-
+$bsca = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE course = 'BSCA'
+    AND status != 'Withdraw'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 // BSCRIM
-$bscrim = mysqli_fetch_assoc(mysqli_query($conn,
-    "SELECT COUNT(*) AS total
-     FROM students
-     WHERE course = 'BSCRIM'
-     AND status != 'Withdraw'
-     AND deleted = 0
-     AND student_list_deleted = 0"
-))['total'];
-
+$bscrim = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE course = 'BSCRIM'
+    AND status != 'Withdraw'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 // BSIT
-$bsit = mysqli_fetch_assoc(mysqli_query($conn,
-    "SELECT COUNT(*) AS total
-     FROM students
-     WHERE course = 'BSIT'
-     AND status != 'Withdraw'
-     AND deleted = 0
-     AND student_list_deleted = 0"
-))['total'];
-
+$bsit = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE course = 'BSIT'
+    AND status != 'Withdraw'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 // BSBA FM
-$bsbafm = mysqli_fetch_assoc(mysqli_query($conn,
-    "SELECT COUNT(*) AS total
-     FROM students
-     WHERE course = 'BSBA FM'
-     AND status != 'Withdraw'
-     AND deleted = 0
-     AND student_list_deleted = 0"
-))['total'];
-
+$bsbafm = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE course = 'BSBA FM'
+    AND status != 'Withdraw'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 // BSBA MM
-$bsbamm = mysqli_fetch_assoc(mysqli_query($conn,
-    "SELECT COUNT(*) AS total
-     FROM students
-     WHERE course = 'BSBA MM'
-     AND status != 'Withdraw'
-     AND deleted = 0
-     AND student_list_deleted = 0"
-))['total'];
-
+$bsbamm = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE course = 'BSBA MM'
+    AND status != 'Withdraw'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 // BSBA HRDM
-$bsbahrdm = mysqli_fetch_assoc(mysqli_query($conn,
-    "SELECT COUNT(*) AS total
-     FROM students
-     WHERE course = 'BSBA HRDM'
-     AND status != 'Withdraw'
-     AND deleted = 0
-     AND student_list_deleted = 0"
-))['total'];
-
+$bsbahrdm = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE course = 'BSBA HRDM'
+    AND status != 'Withdraw'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 // BSHM
-$bshm = mysqli_fetch_assoc(mysqli_query($conn,
-    "SELECT COUNT(*) AS total
-     FROM students
-     WHERE course = 'BSHM'
-     AND status != 'Withdraw'
-     AND deleted = 0
-     AND student_list_deleted = 0"
-))['total'];
-
+$bshm = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE course = 'BSHM'
+    AND status != 'Withdraw'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 // BSED
-$bsed = mysqli_fetch_assoc(mysqli_query($conn,
-    "SELECT COUNT(*) AS total
-     FROM students
-     WHERE course = 'BSED'
-     AND status != 'Withdraw'
-     AND deleted = 0
-     AND student_list_deleted = 0"
-))['total'];
-
+$bsed = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE course = 'BSED'
+    AND status != 'Withdraw'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 // BEED
-$beed = mysqli_fetch_assoc(mysqli_query($conn,
-    "SELECT COUNT(*) AS total
-     FROM students
-     WHERE course = 'BEED'
-     AND status != 'Withdraw'
-     AND deleted = 0
-     AND student_list_deleted = 0"
-))['total'];
+$beed = fetchTotal($conn, "
+    SELECT COUNT(*) AS total
+    FROM students
+    WHERE course = 'BEED'
+    AND status != 'Withdraw'
+    AND deleted = 0
+    AND student_list_deleted = 0
+");
 
 ?>
 
@@ -700,7 +691,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     <span>— Tanjiro ^-^ X</span>
 </div>
 
-</div> <!-- content -->
 </div> <!-- content -->
 
 </div> <!-- main -->
