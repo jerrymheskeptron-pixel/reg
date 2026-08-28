@@ -96,7 +96,7 @@ if (!$conn) {
 
                     <div class="d-flex align-items-center gap-2">
 
-                        <h2 class="h4 mb-0 text-primary fw-bold d-inline-flex align-items-center" style="color: #0d6efd !important;">
+                        <h2 class="h4 mb-0 text-primary fw-bold d-inline-flex align-items-center withdraw-heading">
                             <i class="fas fa-user-minus me-2"></i>
                             Withdraw Students
                         </h2>
@@ -111,7 +111,7 @@ if (!$conn) {
 
                     </div>
 
-                    <small class="text-muted d-block mt-1" style="font-size: 12px; color: #6c757d !important;">
+                    <small class="text-muted d-block mt-1 withdraw-subtitle">
                         List of students with withdrawn enrollment status
                     </small>
 
@@ -140,31 +140,31 @@ if (!$conn) {
 
                         <tr>
 
-                            <th class="ps-3" style="width: 15%;">
+                            <th class="ps-3 col-student-no">
                                 Student No.
                             </th>
 
-                            <th style="width: 25%;">
+                            <th class="col-full-name">
                                 Full Name
                             </th>
 
-                            <th style="width: 12%;">
+                            <th class="col-course">
                                 Course
                             </th>
 
-                            <th style="width: 10%;">
+                            <th class="col-year">
                                 Year
                             </th>
 
-                            <th style="width: 10%;">
+                            <th class="col-section">
                                 Section
                             </th>
 
-                            <th style="width: 13%;">
+                            <th class="col-status">
                                 Status
                             </th>
 
-                            <th class="text-end pe-3 no-print" style="width: 15%;">
+                            <th class="text-end pe-3 no-print col-action">
                                 Action
                             </th>
 
@@ -278,7 +278,7 @@ if (!$conn) {
 
                                 <i class="fas fa-folder fa-2x mb-2 text-secondary d-block"></i>
 
-                                <span style="font-size: 13px; color: #6c757d;">
+                                <span class="withdraw-empty-text">
                                     No withdrawn students found.
                                 </span>
 

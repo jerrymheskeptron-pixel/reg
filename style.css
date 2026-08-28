@@ -4300,3 +4300,45 @@ table{
     border-radius: 50rem !important;
     padding: 6px 16px !important;
 }
+
+.withdraw-heading {
+    color: #0d6efd !important;
+}
+
+.withdraw-subtitle {
+    font-size: 12px !important;
+    color: #6c757d !important;
+}
+
+.withdraw-empty-text {
+    font-size: 13px !important;
+    color: #6c757d !important;
+}
+
+.col-student-no {
+    width: 15%;
+}
+
+.col-full-name {
+    width: 25%;
+}
+
+.col-course {
+    width: 12%;
+}
+
+.col-year {
+    width: 10%;
+}
+
+.col-section {
+    width: 10%;
+}
+
+.col-status {
+    width: 13%;
+}
+
+.col-action {
+    width: 15%;
+}
