@@ -1,0 +1,260 @@
+/* Global & Custom Stylesheet for Student Information System (Bootstrap 5 Companion) */
+
+/* General Custom Overrides */
+body {
+    background-color: #edf2f7;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* ==========================================
+   Login Page Styles
+   ========================================== */
+.login-box {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+/* ==========================================
+   Dashboard & Sidebar Layout
+   ========================================== */
+.dashboard-header {
+    min-height: 140px;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-logo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: white;
+    padding: 6px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.3);
+}
+
+.sidebar {
+    width: 240px;
+    background: #2f343a;
+    min-height: calc(100vh - 140px);
+}
+
+.menu-btn {
+    width: 100%;
+    background: #ffffff;
+    color: #000;
+    border: none;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .3s;
+}
+
+.menu-btn:hover {
+    background: #2f80ed;
+    color: white;
+}
+
+.submenu {
+    display: none;
+}
+
+.submenu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 22px;
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+    font-size: 15px;
+}
+
+.submenu a:hover {
+    background: #2f80ed;
+    padding-left: 28px;
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 25px;
+    background: linear-gradient(135deg, #f8fafc, #edf2f7);
+}
+
+.stats-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.05);
+}
+
+.stat-box i {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.stat-box h2 {
+    font-size: 26px;
+    margin: 4px 0;
+}
+
+/* Course Cards */
+.card-course {
+    transition: transform .25s ease, box-shadow .25s ease;
+    cursor: pointer;
+}
+
+.card-course:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.1) !important;
+}
+
+.bsit { border-top: 6px solid #2196F3; }
+.bscrim { border-top: 6px solid #FFC107; }
+.bshm { border-top: 6px solid #4CAF50; }
+.bsca { border-top: 6px solid #7E57C2; }
+.bsba { border-top: 6px solid #E53935; }
+.bsed { border-top: 6px solid #FF7043; }
+.beed { border-top: 6px solid #00ACC1; }
+
+.course-dropdown {
+    display: none;
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 240px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1000;
+    box-shadow: 0 15px 35px rgba(0,0,0,.2);
+}
+
+.course-dropdown .title {
+    background: linear-gradient(135deg,#2563eb,#1d4ed8);
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.course-dropdown a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    transition: .2s;
+}
+
+.course-dropdown a:hover {
+    background: #2563eb;
+    color: #fff;
+    padding-left: 22px;
+}
+
+/* ==========================================
+   Action & Utility Components
+   ========================================== */
+.action-buttons {
+    white-space: nowrap;
+}
+
+.action-buttons a, .action-buttons button {
+    display: inline-flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+    margin: 2px !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.action-buttons .edit-btn { background: #0d6efd; }
+.action-buttons .edit-btn:hover { background: #0b5ed7; transform: translateY(-2px); }
+
+.action-buttons .delete-btn { background: #dc3545; }
+.action-buttons .delete-btn:hover { background: #bb2d3b; transform: translateY(-2px); }
+
+.action-buttons .drop-btn { background: #f59e0b; }
+.action-buttons .drop-btn:hover { background: #d97706; transform: translateY(-2px); }
+
+.action-buttons .withdraw-btn { background: #7c3aed; }
+.action-buttons .withdraw-btn:hover { background: #5b21b6; transform: translateY(-2px); }
+
+.info-box {
+    background: linear-gradient(135deg, #f8fafc, #eef4ff);
+    border: 1px solid #dbe5f1;
+    border-radius: 10px;
+    padding: 12px 16px;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    background-color: #111827;
+    color: #f9fafb;
+}
+
+body.dark-mode .dashboard-content {
+    background: #1f2937;
+}
+
+body.dark-mode .stats-container,
+body.dark-mode .card {
+    background-color: #374151;
+    color: #ffffff;
+}
+
+body.dark-mode .sidebar {
+    background: #111827;
+}
+
+/* Print Styles */
+@media print {
+    .no-print, .sidebar, .control-panel {
+        display: none !important;
+    }
+    body {
+        background: white !important;
+        padding: 0 !important;
+    }
+}
