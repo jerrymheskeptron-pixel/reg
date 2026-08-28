@@ -36,167 +36,10 @@ $totalStudents = mysqli_num_rows($result);
 <meta charset="UTF-8">
 <title>Student Information</title>
 
-<style>
-
-body{
-    font-family:Arial;
-    background:#f1f5f9;
-    padding:30px;
-}
-
-h2{
-    color:#2563eb;
-}
-
-.table-container{
-    width:100%;
-    max-height:600px;
-    overflow:auto;
-    margin-top:20px;
-}
-
-table{
-    width:max-content;
-    min-width:100%;
-    border-collapse:collapse;
-}
-
-th{
-    background:#2563eb;
-    color:white;
-    padding:12px;
-
-    position:sticky;
-    top:0;
-    z-index:10;
-
-    white-space:nowrap;
-}
-
-td{
-    padding:10px;
-    border-bottom:1px solid #ddd;
-    white-space:nowrap;
-}
-
-tr:hover{
-    background:#f5f5f5;
-}
-
-.back{
-    display:inline-block;
-    background:#2563eb;
-    color:white;
-    padding:10px 20px;
-    text-decoration:none;
-    border-radius:5px;
-}
-
-.back:hover{
-    background:#1d4ed8;
-}
-
-.delete-btn{
-    display:inline-block;
-    background:#dc2626;
-    color:white;
-    border:none;
-    padding:7px 14px;
-    border-radius:5px;
-    cursor:pointer;
-    font-weight:bold;
-    text-decoration:none;
-    font-size:13px;
-}
-
-.delete-btn:hover{
-    background:#b91c1c;
-}
 
 
-/* TOP BUTTONS */
-
-.top-buttons{
-    display:flex;
-    gap:10px;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-
-/* DELETE ALL */
-
-.delete-all-btn{
-    background:#dc2626;
-    color:white;
-    border:none;
-    padding:10px 18px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:14px;
-}
-
-.delete-all-btn:hover{
-    background:#b91c1c;
-}
-
-
-/* NO STUDENTS */
-
-.no-students{
-    text-align:center;
-    padding:30px;
-    color:#64748b;
-    font-weight:bold;
-    font-size:16px;
-}
-.title-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:15px;
-}
-
-.title-row h2{
-    margin:0;
-    color:#2563eb;
-}
-
-.total-box{
-    background:#2563eb;
-    color:white;
-    padding:10px 18px;
-    border-radius:7px;
-    font-size:16px;
-    font-weight:bold;
-    box-shadow:0 3px 8px rgba(0,0,0,.15);
-}
-
-.total-box i{
-    margin-right:6px;
-}
-
-.total-box strong{
-    font-size:20px;
-    margin-left:5px;
-}
-.excel-btn{
-    display:inline-block;
-    background:#198754;
-    color:white;
-    padding:10px 18px;
-    border-radius:6px;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:14px;
-}
-
-.excel-btn:hover{
-    background:#146c43;
-}
-</style>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
@@ -503,5 +346,6 @@ tr:hover{
 </div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

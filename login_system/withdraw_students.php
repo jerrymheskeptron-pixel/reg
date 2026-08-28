@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "db.php";
+@include "db.php";
 
 /* =========================
    PROCESS WITHDRAW STUDENT
@@ -31,156 +31,340 @@ if (isset($_GET['id'])) {
    GET WITHDRAW STUDENTS
 ========================= */
 
-$result = mysqli_query($conn, "
-    SELECT *
-    FROM students
-    WHERE status = 'Withdraw'
-    AND deleted = 0
-    ORDER BY course, year_level, section, full_name
-");
+if (!$conn) {
+    $total = 0;
+    $result = [];
+} else {
 
-if (!$result) {
-    die("Database Error: " . mysqli_error($conn));
+    $result = mysqli_query($conn, "
+        SELECT *
+        FROM students
+        WHERE status = 'Withdraw'
+        AND deleted = 0
+        ORDER BY course, year_level, section, full_name
+    ");
+
+    if (!$result) {
+        die("Database Error: " . mysqli_error($conn));
+    }
+
+    $total = mysqli_num_rows($result);
 }
-
-$total = mysqli_num_rows($result);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Withdraw Students</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Withdraw Students - Student Information System</title>
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- PAGE POSITION FIX -->
 <style>
 
-body{
-    font-family:Arial;
-    background:#e9e9e9;
-    padding:20px;
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.edit-btn{
-    background:#0d6efd;
-    color:white;
-    padding:6px 12px;
-    border-radius:5px;
-    text-decoration:none;
+/* Main page */
+.withdraw-page {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.delete-btn{
-    background:#dc3545;
-    color:white;
-    padding:6px 12px;
-    border-radius:5px;
-    text-decoration:none;
+/* Header nasa upper-left */
+.withdraw-top-card {
+    width: 100%;
+    margin: 0 0 15px 0 !important;
+    border-radius: 0 !important;
 }
 
-.no-print{
-    text-align:center;
+.withdraw-top-card .card-body {
+    padding: 15px 20px !important;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
+/* Left side */
+.withdraw-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start !important;
+    text-align: left !important;
 }
 
-th{
-    background:#2f80ed;
-    color:white;
-    padding:10px;
+/* Table */
+.withdraw-content-area {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 15px 20px 15px !important;
 }
 
-td{
-    padding:10px;
-    text-align:center;
-    border-bottom:1px solid #ddd;
+.withdraw-content-area table {
+    width: 100% !important;
+}
+
+/* Prevent global CSS from centering page */
+body {
+    display: block !important;
 }
 
 </style>
 
 </head>
 
-<body>
 
-<h1>Withdraw Students</h1>
+<body class="bg-light">
 
-<p>
-    <strong>Total Withdraw Students:</strong>
-    <?php echo $total; ?>
-</p>
+<div class="withdraw-page">
 
-<table border="1" cellspacing="0" cellpadding="10" width="100%">
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-<tr>
-    <th>Student No.</th>
-    <th>Full Name</th>
-    <th>Course</th>
-    <th>Year</th>
-    <th>Section</th>
-    <th>Status</th>
-    <th class="no-print">Action</th>
-</tr>
+<div class="card shadow-sm border-0 rounded-0 withdraw-top-card">
 
-<?php while($row = mysqli_fetch_assoc($result)){ ?>
+    <div class="card-body d-flex justify-content-between align-items-center">
 
-<tr>
+        <!-- LEFT SIDE -->
+        <div class="withdraw-title">
 
-    <td>
-        <?php echo htmlspecialchars($row['student_no']); ?>
-    </td>
+            <a href="dashboard.php"
+               class="btn btn-outline-secondary btn-sm rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+               style="width:40px; height:40px;">
 
-    <td>
-        <?php echo htmlspecialchars($row['full_name']); ?>
-    </td>
+                <i class="fas fa-arrow-left"></i>
 
-    <td>
-        <?php echo htmlspecialchars($row['course']); ?>
-    </td>
+            </a>
 
-    <td>
-        <?php echo htmlspecialchars($row['year_level']); ?>
-    </td>
+            <div>
 
-    <td>
-        <?php echo htmlspecialchars($row['section']); ?>
-    </td>
+                <h2 class="h4 mb-0 text-primary fw-bold">
+                    <i class="fas fa-user-minus me-2"></i>
+                    Withdraw Students
+                </h2>
 
-    <td>
-        <?php echo htmlspecialchars($row['status']); ?>
-    </td>
+                <small class="text-muted">
+                    List of students with withdrawn enrollment status
+                </small>
 
-    <td class="no-print">
+            </div>
 
-        <a href="edit_student.php?id=<?php echo $row['id']; ?>"
-           class="edit-btn">
+        </div>
 
-            <i class="fas fa-pen"></i>
-            Edit
+        <!-- RIGHT SIDE -->
+        <div>
 
-        </a>
+            <span class="badge bg-danger fs-6 px-3 py-2 rounded-pill">
 
-        <a href="delete_student.php?id=<?php echo $row['id']; ?>"
-           class="delete-btn"
-           onclick="return confirm('Delete this student?')">
+                <i class="fas fa-users me-1"></i>
 
-            <i class="fas fa-trash"></i>
-            Delete
+                Total Withdrawn:
+                <?php echo $total; ?>
 
-        </a>
+            </span>
 
-    </td>
+        </div>
 
-</tr>
+    </div>
 
-<?php } ?>
+</div>
 
-</table>
+
+
+    <!-- =========================
+         TABLE
+    ========================== -->
+
+    <div class="withdraw-content-area">
+
+        <div class="card shadow-sm border-0 w-100">
+
+            <div class="card-body p-0 w-100">
+
+                <div class="table-responsive w-100">
+
+                    <table class="table table-hover table-striped align-middle mb-0 w-100">
+
+                        <thead class="table-dark">
+
+                            <tr>
+
+                                <th class="ps-3">
+                                    Student No.
+                                </th>
+
+                                <th>
+                                    Full Name
+                                </th>
+
+                                <th>
+                                    Course
+                                </th>
+
+                                <th>
+                                    Year
+                                </th>
+
+                                <th>
+                                    Section
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th class="text-end pe-3 no-print">
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                        <?php if ($total > 0) { ?>
+
+                            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+
+                                <tr>
+
+                                    <td class="ps-3 fw-bold text-secondary">
+
+                                        <?php
+                                        echo htmlspecialchars($row['student_no']);
+                                        ?>
+
+                                    </td>
+
+
+                                    <td class="fw-semibold">
+
+                                        <?php
+                                        echo htmlspecialchars($row['full_name']);
+                                        ?>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge bg-info text-dark">
+
+                                            <?php
+                                            echo htmlspecialchars($row['course']);
+                                            ?>
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <?php
+                                        echo htmlspecialchars($row['year_level']);
+                                        ?>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <?php
+                                        echo htmlspecialchars($row['section']);
+                                        ?>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge bg-danger">
+
+                                            <?php
+                                            echo htmlspecialchars($row['status']);
+                                            ?>
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="text-end pe-3 no-print">
+
+                                        <a href="edit_student.php?id=<?php echo $row['id']; ?>"
+                                           class="btn btn-sm btn-outline-primary me-1">
+
+                                            <i class="fas fa-pen me-1"></i>
+                                            Edit
+
+                                        </a>
+
+
+                                        <a href="delete_student.php?id=<?php echo $row['id']; ?>"
+                                           class="btn btn-sm btn-outline-danger"
+                                           onclick="return confirm('Delete this student?')">
+
+                                            <i class="fas fa-trash me-1"></i>
+                                            Delete
+
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            <?php } ?>
+
+                        <?php } else { ?>
+
+                            <tr>
+
+                                <td colspan="7"
+                                    class="text-center py-5 text-muted">
+
+                                    <i class="fas fa-folder-open fa-3x mb-3 d-block text-secondary"></i>
+
+                                    No withdrawn students found.
+
+                                </td>
+
+                            </tr>
+
+                        <?php } ?>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
