@@ -56,54 +56,10 @@ $total = mysqli_num_rows($result);
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<style>
 
-body{
-    font-family:Arial;
-    background:#e9e9e9;
-    padding:20px;
-}
 
-.edit-btn{
-    background:#0d6efd;
-    color:white;
-    padding:6px 12px;
-    border-radius:5px;
-    text-decoration:none;
-}
-
-.delete-btn{
-    background:#dc3545;
-    color:white;
-    padding:6px 12px;
-    border-radius:5px;
-    text-decoration:none;
-}
-
-.no-print{
-    text-align:center;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-}
-
-th{
-    background:#2f80ed;
-    color:white;
-    padding:10px;
-}
-
-td{
-    padding:10px;
-    text-align:center;
-    border-bottom:1px solid #ddd;
-}
-
-</style>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -182,5 +138,6 @@ td{
 
 </table>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

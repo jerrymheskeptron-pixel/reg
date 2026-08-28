@@ -31,43 +31,10 @@ if(isset($_POST['update'])){
 <head>
 <title>Edit Student</title>
 
-<style>
 
-body{
-    font-family:Arial;
-    background:#e9e9e9;
-}
 
-.box{
-    width:500px;
-    margin:50px auto;
-    background:#fff;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,.2);
-}
-
-input,select{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-}
-
-button{
-    background:#2f80ed;
-    color:white;
-    border:none;
-    padding:10px;
-    width:100%;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#145cc0;
-}
-
-</style>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -110,5 +77,6 @@ Update Student
 
 </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
