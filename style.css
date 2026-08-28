@@ -4179,124 +4179,124 @@ table{
 /* ==========================================
    Withdraw Students Page Styles (.withdraw-page)
    ========================================== */
+
+/* Override global .card styles from style.css */
+.withdraw-page .card {
+    display: block !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    justify-content: normal !important;
+    align-items: normal !important;
+    text-align: left !important;
+    cursor: default !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+}
+
+/* Main page */
 .withdraw-page {
     width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-/* Header flush at top */
-.withdraw-page .withdraw-header {
-    width: 100%;
-    background: #ffffff;
-    border-radius: 0 0 12px 12px;
-    padding: 18px 30px;
-    margin: 0 0 20px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 18px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
-}
-
-.withdraw-page .withdraw-title {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.withdraw-page .withdraw-title h2 {
-    margin: 0;
-    color: #0d6efd;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.withdraw-page .withdraw-title p {
-    margin: 4px 0 0 0;
-    color: #6c757d;
-    font-size: 13px;
-}
-
-.withdraw-page .total-withdrawn {
-    background: #dc3545;
-    color: white;
-    padding: 8px 18px;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-/* Table Container & Layout */
-.withdraw-page .table-container {
-    padding: 0 20px 20px 20px;
-    width: 100%;
-}
-
-.withdraw-page table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-}
-
-.withdraw-page table th {
-    background: #212529;
-    color: #ffffff;
-    padding: 14px;
-    text-align: left;
-    font-weight: 600;
-}
-
-.withdraw-page table td {
-    padding: 12px 14px;
-    border-bottom: 1px solid #e9ecef;
-    vertical-align: middle;
-}
-
-.withdraw-page table tbody tr:hover {
-    background: #f8fafc;
-}
-
-.withdraw-page .no-students {
-    text-align: center;
-    padding: 40px;
-    color: #64748b;
-    font-size: 15px;
-}
-
-@media (max-width: 768px) {
-    .withdraw-page .withdraw-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 16px;
-    }
-}
-/* =========================
-   WITHDRAW STUDENTS PAGE
-   ========================= */
-
-html,
-body {
     margin: 0 !important;
     padding: 0 !important;
-    min-height: 100% !important;
 }
 
+/* Header nasa upper-left */
 .withdraw-top-card {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+    width: 100%;
+    margin: 0 0 10px 0 !important;
+    background-color: transparent !important;
 }
 
+.withdraw-top-card .card-body {
+    padding: 12px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Left side */
+.withdraw-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start !important;
+    text-align: left !important;
+}
+
+/* Table */
 .withdraw-content-area {
-    margin-top: 0 !important;
-    padding: 0 15px 20px 15px;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 15px 15px 15px !important;
 }
 
-/* Remove any vertical centering/large top spacing */
-.container-fluid {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+.withdraw-table-container {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.withdraw-content-area table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.withdraw-content-area table thead th {
+    position: relative !important;
+    top: 0 !important;
+    z-index: 1 !important;
+    background: #212529 !important;
+    background-color: #212529 !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    border: none !important;
+    padding: 14px 15px !important;
+    vertical-align: middle !important;
+}
+
+.withdraw-empty-row {
+    background-color: #f0f0f0 !important;
+}
+
+.withdraw-empty-cell {
+    background-color: #f0f0f0 !important;
+    padding: 50px 20px !important;
+    border: none !important;
+}
+
+.back-btn-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-right: 15px;
+    flex-shrink: 0;
+    color: #6c757d;
+}
+
+.back-btn-circle:hover {
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.total-badge-red {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    border-radius: 50rem !important;
+    padding: 6px 16px !important;
 }
