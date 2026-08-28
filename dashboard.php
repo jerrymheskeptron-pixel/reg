@@ -10,13 +10,15 @@ if(!isset($_SESSION['username'])){
    DASHBOARD STATISTICS
 ========================= */
 
-function fetchTotal($conn, $query) {
-    if (!$conn) return 0;
-    $res = @mysqli_query($conn, $query);
-    if ($res && $row = @mysqli_fetch_assoc($res)) {
-        return $row['total'];
+if (!function_exists('fetchTotal')) {
+    function fetchTotal($conn, $query) {
+        if (!$conn) return 0;
+        $res = @mysqli_query($conn, $query);
+        if ($res && $row = @mysqli_fetch_assoc($res)) {
+            return $row['total'];
+        }
+        return 0;
     }
-    return 0;
 }
 
 /* TOTAL ACTIVE STUDENTS */

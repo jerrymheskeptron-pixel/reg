@@ -7,6 +7,6 @@ try {
 }
 
 if (!$conn) {
-    // Database connection fallback
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
