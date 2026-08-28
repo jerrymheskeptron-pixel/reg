@@ -167,9 +167,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid p-0 app-container">
 
-<div class="header">
+<div class="header w-100">
 
 <img src="logo.png" class="dashboard-logo">
 

@@ -30,8 +30,8 @@ body{
 
 .container{
 
-    width:98%;
-    max-width:1700px;
+    width:100%;
+    max-width:100%;
     margin:20px auto;
 
 }
@@ -1190,7 +1190,8 @@ body{
 }
 
 .control-panel{
-    max-width:900px;
+    max-width:100%;
+    max-width:100%;
     margin:0 auto 15px;
     border-radius:10px;
 }
@@ -1288,19 +1289,18 @@ body{
 
 body{
     background:#e9e9e9;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+    min-height:100vh;
+    margin:0;
+    padding:0;
 }
 
-.container{
-    width:1200px;
-    max-width:95%;
-    height:1050px;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
+.app-container, .container-app{
+    width:100% !important;
+    max-width:100% !important;
+    min-height:100vh;
+    margin:0 !important;
+    padding:0 !important;
+    border-radius:0 !important;
 }
 
 .header{
@@ -1355,7 +1355,7 @@ body{
 
 .main{
     display:flex;
-    height:900px;
+    min-height:calc(100vh - 170px);
 }
 
 
@@ -2048,7 +2048,8 @@ body{
 }
 
 .box{
-    width:500px;
+    width:100%;
+    max-width:550px;
     margin:50px auto;
     background:#fff;
     padding:25px;
@@ -2090,7 +2091,8 @@ body{
 }
 
 .container{
-    width:900px;
+    width:100%;
+    max-width:100%;
     max-width:95%;
     margin:auto;
     background:white;
@@ -2300,7 +2302,8 @@ body{
 }
 
 .container{
-    width:700px;
+    width:100%;
+    max-width:100%;
     max-width:95%;
     margin:auto;
     background:white;
@@ -2472,7 +2475,8 @@ td:nth-child(3){
         }
 
         .login-box{
-            width:500px;
+            width:100%;
+    max-width:550px;
             background:#fff;
             border-radius:18px;
             padding:40px;
@@ -2815,8 +2819,8 @@ body{
 }
 
 .container{
-    width:95%;
-    max-width:1500px;
+    width:100%;
+    max-width:100%;
     margin:25px auto;
 }
 
@@ -3101,7 +3105,8 @@ body{
 }
 
 .container{
-    width:650px;
+    width:100%;
+    max-width:100%;
     max-width:95%;
     margin:auto;
     background:white;
@@ -3307,7 +3312,8 @@ body{
 }
 
 .container-box{
-    width: 900px;
+    width:100%;
+    max-width:100%;
     margin: auto;
     background: white;
     padding: 25px;
@@ -3459,8 +3465,8 @@ a{
     background:#b02a37;
 }
 .page-container{
-    width:85%;
-    max-width:1200px;
+    width:100%;
+    max-width:100%;
     margin:30px auto;
 }
 
@@ -3486,7 +3492,8 @@ a{
 }
 table{
     width:100%;
-    min-width:900px;
+    min-width:100%;
+    max-width:100%;
     border-collapse:collapse;
 }
 .table-container thead th{

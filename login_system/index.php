@@ -13,9 +13,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-light d-flex align-items-center justify-content-center min-vh-100 m-0">
 
-<div class="login-box">
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+<div class="login-box col-12 col-sm-8 col-md-6 col-lg-4 p-4 shadow-lg bg-white rounded-4">
 
     <div class="logo">
     <img src="logo.png" alt="SIBTI Logo">
@@ -65,6 +66,7 @@
         © <?php echo date("Y"); ?> Student Information System
     </div>
 
+</div>
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
